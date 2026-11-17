@@ -1,0 +1,119 @@
+---
+title: "Case 31 | Employees Federal Credit Union"
+subtitle: "Step 3-2: Hypothesis Testing (H1 and H2)"
+author: "Yushan Huang"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    theme: cosmo
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup
+library(haven)
+library(knitr)
+file <- "Case 31 Data_efcu_4.sav"
+if (!file.exists(file)) stop("Put the original SAV file in the same folder as this QMD.")
+d <- as.data.frame(read_sav(file))
+names(d) <- toupper(trimws(names(d)))
+names(d) <- sub("^Q_([0-9]+)$", "Q\\1", names(d))
+names(d) <- sub("^Q([0-9]+)R$", "Q\\1_R", names(d))
+needed <- c("Q13_R", "Q33", "Q8_R", "Q30")
+if (length(setdiff(needed, names(d)))) stop("Missing variables: ", paste(setdiff(needed, names(d)), collapse=", "))
+for (v in needed) d[[v]] <- as.numeric(d[[v]])
+fmtp <- function(p) ifelse(p < .001, "< .001", sprintf("= %.3f", p))
+```
+
+# Study overview
+
+This report tests two hypotheses using the cleaned EFCU member survey. Descriptive statistics are presented before inferential tests. Statistical significance is assessed at alpha = .05. Results describe associations and differences, not causal effects.
+
+# H1 — Awareness of regular share accounts and service adequacy
+
+**Hypothesis.** Members' awareness of regular share accounts is associated with their evaluation of how well the credit union's current financial services meet their needs. The independent variable is Q13_R (1 = aware and used; 2 = aware but not used; 3 = unaware), and the dependent variable is Q33 (1–5 agreement rating). One-way ANOVA is appropriate because the outcome is a numerical rating and the predictor defines three independent groups.
+
+## Descriptive statistics
+
+```{r}
+#| label: tbl-h1-descriptives
+#| tbl-cap: "Q33 ratings by regular share account awareness (Q13_R)"
+h1 <- subset(d, !is.na(Q13_R) & !is.na(Q33))
+h1$Awareness <- factor(h1$Q13_R, levels=c(1,2,3), labels=c("Aware and used", "Aware, not used", "Unaware"))
+h1_desc <- do.call(rbind, lapply(split(h1$Q33,h1$Awareness), function(x) data.frame(N=length(x), Mean=mean(x), SD=sd(x))))
+h1_desc$Awareness <- rownames(h1_desc)
+rownames(h1_desc) <- NULL
+knitr::kable(h1_desc[,c("Awareness","N","Mean","SD")], digits=3)
+```
+
+## One-way ANOVA
+
+```{r}
+#| label: tbl-h1-anova
+#| tbl-cap: "One-way ANOVA for Q33 by awareness group"
+fit <- aov(Q33 ~ Awareness, data=h1)
+knitr::kable(as.data.frame(summary(fit)[[1]]), digits=4)
+```
+
+```{r}
+#| label: fig-h1-means
+#| fig-cap: "Mean Q33 rating by awareness category"
+means <- tapply(h1$Q33,h1$Awareness,mean)
+barplot(means, ylim=c(0,5), ylab="Mean agreement (Q33)", las=2, col="steelblue")
+```
+
+The mean service-adequacy rating is highest among members aware of but not using regular share accounts (M = 3.72), followed by those aware of and using them (M = 3.63), and lowest among members unaware of the service (M = 3.08). The overall difference is statistically significant (F(2, 125) = 4.63, p = 0.011, η² = 0.069). This is evidence of an association, not proof that awareness causes better evaluations.
+
+```{r}
+#| label: h1-assumptions
+# Inspect spread and residuals; consider Welch ANOVA if group variances differ.
+by(h1$Q33, h1$Awareness, sd)
+fligner.test(Q33 ~ Awareness, data=h1)
+oneway.test(Q33 ~ Awareness, data=h1, var.equal=FALSE)
+```
+
+# H2 — Two ratings of credit union loan rates
+
+**Hypothesis.** Members' opinions about the credit union's loan rates (Q8_R) and their agreement that its loan rates are lower than competitors' (Q30) do not differ on average. Both items are five-point scales. A paired-samples t-test is appropriate because each member provides both ratings; only complete pairs are included. This tests a mean difference, not equivalence.
+
+## Paired descriptive statistics
+
+```{r}
+#| label: tbl-h2-descriptives
+#| tbl-cap: "Loan-rate ratings among members with both responses"
+h2 <- d[complete.cases(d[,c("Q8_R","Q30")]), c("Q8_R","Q30")]
+h2_desc <- data.frame(Item=c("Q8_R: Opinion on loan rates", "Q30: Rates lower than competitors"), N=nrow(h2), Mean=c(mean(h2$Q8_R),mean(h2$Q30)), SD=c(sd(h2$Q8_R),sd(h2$Q30)))
+knitr::kable(h2_desc,digits=3)
+```
+
+## Paired-samples t-test
+
+```{r}
+#| label: h2-paired-test
+paired_test <- t.test(h2$Q8_R,h2$Q30,paired=TRUE)
+paired_test
+```
+
+```{r}
+#| label: fig-h2-differences
+#| fig-cap: "Distribution of within-member differences (Q8_R minus Q30)"
+hist(h2$Q8_R-h2$Q30, main="Paired rating differences", xlab="Q8_R - Q30", col="steelblue")
+```
+
+Among 107 members with both responses, Q8_R averaged 3.14 and Q30 averaged 3.06. The mean paired difference (Q8_R − Q30) was 0.08, with a 95% confidence interval of [-0.19, 0.36]. The difference was not statistically significant (t(106) = 0.60, p = 0.549). Thus, we do not reject the null hypothesis of no mean difference; this does not establish that the two perceptions are equivalent. These two questions capture related but distinct perceptions of loan rates, so the substantive interpretation should not assume they are interchangeable.
+
+# Conclusion
+
+H1 evaluates whether awareness groups differ in perceived service adequacy, whereas H2 evaluates whether two loan-rate perceptions differ within the same respondents. The analyses use the tests specified in the Case 31 assignment key.
+
+# Appendix — GitHub links
+
+- **GitHub Repository:** [Insert your repository URL after publishing]
+- **GitHub Pages:** [Insert your published report URL after publishing]
+
+**Data source:** Case 31 Data_efcu_4.sav (cleaned survey data). This report should be rendered in RStudio/Quarto with the SAV file in the same directory.

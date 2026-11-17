@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Yushan Huang">
+
+<title>Case 31 | Employees Federal Credit Union</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Case31_H1_H2_Yushan_Huang_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Case31_H1_H2_Yushan_Huang_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Case31_H1_H2_Yushan_Huang_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Case31_H1_H2_Yushan_Huang_files/libs/quarto-html/popper.min.js"></script>
+<script src="Case31_H1_H2_Yushan_Huang_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Case31_H1_H2_Yushan_Huang_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Case31_H1_H2_Yushan_Huang_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Case31_H1_H2_Yushan_Huang_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Case31_H1_H2_Yushan_Huang_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Case31_H1_H2_Yushan_Huang_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Case31_H1_H2_Yushan_Huang_files/libs/bootstrap/bootstrap-8a894fcc3cb5e37eb5bf30def131be2f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#study-overview" id="toc-study-overview" class="nav-link active" data-scroll-target="#study-overview"><span class="header-section-number">1</span> Study overview</a></li>
+  <li><a href="#h1-awareness-of-regular-share-accounts-and-service-adequacy" id="toc-h1-awareness-of-regular-share-accounts-and-service-adequacy" class="nav-link" data-scroll-target="#h1-awareness-of-regular-share-accounts-and-service-adequacy"><span class="header-section-number">2</span> H1 — Awareness of regular share accounts and service adequacy</a>
+  <ul class="collapse">
+  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics"><span class="header-section-number">2.1</span> Descriptive statistics</a></li>
+  <li><a href="#one-way-anova" id="toc-one-way-anova" class="nav-link" data-scroll-target="#one-way-anova"><span class="header-section-number">2.2</span> One-way ANOVA</a></li>
+  </ul></li>
+  <li><a href="#h2-two-ratings-of-credit-union-loan-rates" id="toc-h2-two-ratings-of-credit-union-loan-rates" class="nav-link" data-scroll-target="#h2-two-ratings-of-credit-union-loan-rates"><span class="header-section-number">3</span> H2 — Two ratings of credit union loan rates</a>
+  <ul class="collapse">
+  <li><a href="#paired-descriptive-statistics" id="toc-paired-descriptive-statistics" class="nav-link" data-scroll-target="#paired-descriptive-statistics"><span class="header-section-number">3.1</span> Paired descriptive statistics</a></li>
+  <li><a href="#paired-samples-t-test" id="toc-paired-samples-t-test" class="nav-link" data-scroll-target="#paired-samples-t-test"><span class="header-section-number">3.2</span> Paired-samples t-test</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">4</span> Conclusion</a></li>
+  <li><a href="#appendix-github-links" id="toc-appendix-github-links" class="nav-link" data-scroll-target="#appendix-github-links"><span class="header-section-number">5</span> Appendix — GitHub links</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Case 31 | Employees Federal Credit Union</h1>
+<p class="subtitle lead">Step 3-2: Hypothesis Testing (H1 and H2)</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Yushan Huang </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>file <span class="ot">&lt;-</span> <span class="st">"Case 31 Data_efcu_4.sav"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file)) <span class="fu">stop</span>(<span class="st">"Put the original SAV file in the same folder as this QMD."</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">read_sav</span>(file))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(d) <span class="ot">&lt;-</span> <span class="fu">toupper</span>(<span class="fu">trimws</span>(<span class="fu">names</span>(d)))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(d) <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">"^Q_([0-9]+)$"</span>, <span class="st">"Q</span><span class="sc">\\</span><span class="st">1"</span>, <span class="fu">names</span>(d))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(d) <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">"^Q([0-9]+)R$"</span>, <span class="st">"Q</span><span class="sc">\\</span><span class="st">1_R"</span>, <span class="fu">names</span>(d))</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>needed <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Q13_R"</span>, <span class="st">"Q33"</span>, <span class="st">"Q8_R"</span>, <span class="st">"Q30"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(<span class="fu">setdiff</span>(needed, <span class="fu">names</span>(d)))) <span class="fu">stop</span>(<span class="st">"Missing variables: "</span>, <span class="fu">paste</span>(<span class="fu">setdiff</span>(needed, <span class="fu">names</span>(d)), <span class="at">collapse=</span><span class="st">", "</span>))</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (v <span class="cf">in</span> needed) d[[v]] <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(d[[v]])</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>fmtp <span class="ot">&lt;-</span> <span class="cf">function</span>(p) <span class="fu">ifelse</span>(p <span class="sc">&lt;</span> .<span class="dv">001</span>, <span class="st">"&lt; .001"</span>, <span class="fu">sprintf</span>(<span class="st">"= %.3f"</span>, p))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="study-overview" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Study overview</h1>
+<p>This report tests two hypotheses using the cleaned EFCU member survey. Descriptive statistics are presented before inferential tests. Statistical significance is assessed at alpha = .05. Results describe associations and differences, not causal effects.</p>
+</section>
+<section id="h1-awareness-of-regular-share-accounts-and-service-adequacy" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> H1 — Awareness of regular share accounts and service adequacy</h1>
+<p><strong>Hypothesis.</strong> Members’ awareness of regular share accounts is associated with their evaluation of how well the credit union’s current financial services meet their needs. The independent variable is Q13_R (1 = aware and used; 2 = aware but not used; 3 = unaware), and the dependent variable is Q33 (1–5 agreement rating). One-way ANOVA is appropriate because the outcome is a numerical rating and the predictor defines three independent groups.</p>
+<section id="descriptive-statistics" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="descriptive-statistics"><span class="header-section-number">2.1</span> Descriptive statistics</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>h1 <span class="ot">&lt;-</span> <span class="fu">subset</span>(d, <span class="sc">!</span><span class="fu">is.na</span>(Q13_R) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(Q33))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>h1<span class="sc">$</span>Awareness <span class="ot">&lt;-</span> <span class="fu">factor</span>(h1<span class="sc">$</span>Q13_R, <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Aware and used"</span>, <span class="st">"Aware, not used"</span>, <span class="st">"Unaware"</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>h1_desc <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, <span class="fu">lapply</span>(<span class="fu">split</span>(h1<span class="sc">$</span>Q33,h1<span class="sc">$</span>Awareness), <span class="cf">function</span>(x) <span class="fu">data.frame</span>(<span class="at">N=</span><span class="fu">length</span>(x), <span class="at">Mean=</span><span class="fu">mean</span>(x), <span class="at">SD=</span><span class="fu">sd</span>(x))))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>h1_desc<span class="sc">$</span>Awareness <span class="ot">&lt;-</span> <span class="fu">rownames</span>(h1_desc)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(h1_desc) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(h1_desc[,<span class="fu">c</span>(<span class="st">"Awareness"</span>,<span class="st">"N"</span>,<span class="st">"Mean"</span>,<span class="st">"SD"</span>)], <span class="at">digits=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-h1-descriptives" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-h1-descriptives-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Q33 ratings by regular share account awareness (Q13_R)
+</figcaption>
+<div aria-describedby="tbl-h1-descriptives-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Awareness</th>
+<th style="text-align: right;">N</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">SD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Aware and used</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">3.627</td>
+<td style="text-align: right;">0.657</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Aware, not used</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">3.719</td>
+<td style="text-align: right;">0.634</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Unaware</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">3.077</td>
+<td style="text-align: right;">0.760</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="one-way-anova" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="one-way-anova"><span class="header-section-number">2.2</span> One-way ANOVA</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">aov</span>(Q33 <span class="sc">~</span> Awareness, <span class="at">data=</span>h1)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">as.data.frame</span>(<span class="fu">summary</span>(fit)[[<span class="dv">1</span>]]), <span class="at">digits=</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-h1-anova" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-h1-anova-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: One-way ANOVA for Q33 by awareness group
+</figcaption>
+<div aria-describedby="tbl-h1-anova-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">Df</th>
+<th style="text-align: right;">Sum Sq</th>
+<th style="text-align: right;">Mean Sq</th>
+<th style="text-align: right;">F value</th>
+<th style="text-align: right;">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Awareness</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4.0615</td>
+<td style="text-align: right;">2.0307</td>
+<td style="text-align: right;">4.631</td>
+<td style="text-align: right;">0.0115</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Residuals</td>
+<td style="text-align: right;">125</td>
+<td style="text-align: right;">54.8135</td>
+<td style="text-align: right;">0.4385</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>means <span class="ot">&lt;-</span> <span class="fu">tapply</span>(h1<span class="sc">$</span>Q33,h1<span class="sc">$</span>Awareness,mean)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(means, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">5</span>), <span class="at">ylab=</span><span class="st">"Mean agreement (Q33)"</span>, <span class="at">las=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">"steelblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-h1-means" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-h1-means-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Case31_H1_H2_Yushan_Huang_files/figure-html/fig-h1-means-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-h1-means-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Mean Q33 rating by awareness category
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The mean service-adequacy rating is highest among members aware of but not using regular share accounts (M = 3.72), followed by those aware of and using them (M = 3.63), and lowest among members unaware of the service (M = 3.08). The overall difference is statistically significant (F(2, 125) = 4.63, p = 0.011, η² = 0.069). This is evidence of an association, not proof that awareness causes better evaluations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect spread and residuals; consider Welch ANOVA if group variances differ.</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">by</span>(h1<span class="sc">$</span>Q33, h1<span class="sc">$</span>Awareness, sd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>h1$Awareness: Aware and used
+[1] 0.6572456
+------------------------------------------------------------ 
+h1$Awareness: Aware, not used
+[1] 0.6342064
+------------------------------------------------------------ 
+h1$Awareness: Unaware
+[1] 0.7595545</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fligner.test</span>(Q33 <span class="sc">~</span> Awareness, <span class="at">data=</span>h1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Fligner-Killeen test of homogeneity of variances
+
+data:  Q33 by Awareness
+Fligner-Killeen:med chi-squared = 0.12474, df = 2, p-value = 0.9395</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">oneway.test</span>(Q33 <span class="sc">~</span> Awareness, <span class="at">data=</span>h1, <span class="at">var.equal=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One-way analysis of means (not assuming equal variances)
+
+data:  Q33 and Awareness
+F = 3.6171, num df = 2.000, denom df = 29.729, p-value = 0.03926</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="h2-two-ratings-of-credit-union-loan-rates" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> H2 — Two ratings of credit union loan rates</h1>
+<p><strong>Hypothesis.</strong> Members’ opinions about the credit union’s loan rates (Q8_R) and their agreement that its loan rates are lower than competitors’ (Q30) do not differ on average. Both items are five-point scales. A paired-samples t-test is appropriate because each member provides both ratings; only complete pairs are included. This tests a mean difference, not equivalence.</p>
+<section id="paired-descriptive-statistics" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="paired-descriptive-statistics"><span class="header-section-number">3.1</span> Paired descriptive statistics</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>h2 <span class="ot">&lt;-</span> d[<span class="fu">complete.cases</span>(d[,<span class="fu">c</span>(<span class="st">"Q8_R"</span>,<span class="st">"Q30"</span>)]), <span class="fu">c</span>(<span class="st">"Q8_R"</span>,<span class="st">"Q30"</span>)]</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>h2_desc <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Item=</span><span class="fu">c</span>(<span class="st">"Q8_R: Opinion on loan rates"</span>, <span class="st">"Q30: Rates lower than competitors"</span>), <span class="at">N=</span><span class="fu">nrow</span>(h2), <span class="at">Mean=</span><span class="fu">c</span>(<span class="fu">mean</span>(h2<span class="sc">$</span>Q8_R),<span class="fu">mean</span>(h2<span class="sc">$</span>Q30)), <span class="at">SD=</span><span class="fu">c</span>(<span class="fu">sd</span>(h2<span class="sc">$</span>Q8_R),<span class="fu">sd</span>(h2<span class="sc">$</span>Q30)))</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(h2_desc,<span class="at">digits=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-h2-descriptives" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-h2-descriptives-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Loan-rate ratings among members with both responses
+</figcaption>
+<div aria-describedby="tbl-h2-descriptives-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Item</th>
+<th style="text-align: right;">N</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">SD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Q8_R: Opinion on loan rates</td>
+<td style="text-align: right;">107</td>
+<td style="text-align: right;">3.140</td>
+<td style="text-align: right;">0.758</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Q30: Rates lower than competitors</td>
+<td style="text-align: right;">107</td>
+<td style="text-align: right;">3.056</td>
+<td style="text-align: right;">0.920</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="paired-samples-t-test" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="paired-samples-t-test"><span class="header-section-number">3.2</span> Paired-samples t-test</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>paired_test <span class="ot">&lt;-</span> <span class="fu">t.test</span>(h2<span class="sc">$</span>Q8_R,h2<span class="sc">$</span>Q30,<span class="at">paired=</span><span class="cn">TRUE</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>paired_test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Paired t-test
+
+data:  h2$Q8_R and h2$Q30
+t = 0.60088, df = 106, p-value = 0.5492
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ -0.1934139  0.3616382
+sample estimates:
+mean difference 
+     0.08411215 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(h2<span class="sc">$</span>Q8_R<span class="sc">-</span>h2<span class="sc">$</span>Q30, <span class="at">main=</span><span class="st">"Paired rating differences"</span>, <span class="at">xlab=</span><span class="st">"Q8_R - Q30"</span>, <span class="at">col=</span><span class="st">"steelblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-h2-differences" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-h2-differences-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Case31_H1_H2_Yushan_Huang_files/figure-html/fig-h2-differences-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-h2-differences-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Distribution of within-member differences (Q8_R minus Q30)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Among 107 members with both responses, Q8_R averaged 3.14 and Q30 averaged 3.06. The mean paired difference (Q8_R − Q30) was 0.08, with a 95% confidence interval of [-0.19, 0.36]. The difference was not statistically significant (t(106) = 0.60, p = 0.549). Thus, we do not reject the null hypothesis of no mean difference; this does not establish that the two perceptions are equivalent. These two questions capture related but distinct perceptions of loan rates, so the substantive interpretation should not assume they are interchangeable.</p>
+</section>
+</section>
+<section id="conclusion" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Conclusion</h1>
+<p>H1 evaluates whether awareness groups differ in perceived service adequacy, whereas H2 evaluates whether two loan-rate perceptions differ within the same respondents. The analyses use the tests specified in the Case 31 assignment key.</p>
+</section>
+<section id="appendix-github-links" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Appendix — GitHub links</h1>
+<ul>
+<li><strong>GitHub Repository:</strong> [Insert your repository URL after publishing]</li>
+<li><strong>GitHub Pages:</strong> [Insert your published report URL after publishing]</li>
+</ul>
+<p><strong>Data source:</strong> Case 31 Data_efcu_4.sav (cleaned survey data). This report should be rendered in RStudio/Quarto with the SAV file in the same directory.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
